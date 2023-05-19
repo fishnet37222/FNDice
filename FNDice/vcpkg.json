@@ -1,0 +1,14 @@
+{
+	"$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+	"name": "fndice",
+	"version": "1.0.0",
+	"dependencies": [
+		"boost-random",
+		"boost-filesystem",
+		"boost-serialization",
+		{
+			"name": "wxwidgets",
+			"features": [ "webview" ]
+		}
+	]
+}
