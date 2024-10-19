@@ -20,6 +20,19 @@ public partial class MainWindow : Form
 		var desiredClientWidth = m_die5.Right + m_die1.Left;
 		var desiredClientHeight = m_tlpTotals.Bottom + 5 + m_statusStrip.Height;
 		ClientSize = new(desiredClientWidth, desiredClientHeight);
+
+		var position = Settings.MainWindowLocation;
+
+		if (position == null)
+		{
+			var workArea = Screen.FromControl(this).WorkingArea;
+
+			Location = new(workArea.Width / 2 - Size.Width / 2, workArea.Height / 2 - Size.Height / 2);
+		}
+		else
+		{
+			Location = position.Value;
+		}
 	}
 
 	private void m_btnRollDice_Click(object sender, EventArgs e)
@@ -37,5 +50,10 @@ public partial class MainWindow : Form
 	private void TsbAbout_Click(object sender, EventArgs e)
 	{
 		new AboutDialog().ShowDialog(this);
+	}
+
+	private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+	{
+		Settings.MainWindowLocation = Location;
 	}
 }

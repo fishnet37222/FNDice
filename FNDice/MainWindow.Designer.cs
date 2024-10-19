@@ -822,6 +822,7 @@ partial class MainWindow
 		this.Icon = (Icon)resources.GetObject("$this.Icon");
 		this.Name = "MainWindow";
 		this.Text = "FNDice";
+		this.FormClosing += this.MainWindow_FormClosing;
 		this.Load += this.MainWindow_Load;
 		m_toolStrip.ResumeLayout(false);
 		m_toolStrip.PerformLayout();
