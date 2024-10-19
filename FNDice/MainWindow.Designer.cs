@@ -132,6 +132,7 @@ partial class MainWindow
 		// m_tsbSaveGame
 		// 
 		this.m_tsbSaveGame.DisplayStyle = ToolStripItemDisplayStyle.Image;
+		this.m_tsbSaveGame.Enabled = false;
 		this.m_tsbSaveGame.Image = Properties.Resources.Save24;
 		this.m_tsbSaveGame.ImageScaling = ToolStripItemImageScaling.None;
 		this.m_tsbSaveGame.ImageTransparentColor = Color.Magenta;
@@ -188,6 +189,7 @@ partial class MainWindow
 		this.m_tsbAbout.ImageTransparentColor = Color.Magenta;
 		this.m_tsbAbout.Name = "m_tsbAbout";
 		this.m_tsbAbout.Size = new Size(28, 28);
+		this.m_tsbAbout.Click += this.TsbAbout_Click;
 		// 
 		// m_statusStrip
 		// 

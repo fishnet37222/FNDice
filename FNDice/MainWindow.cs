@@ -33,4 +33,9 @@ public partial class MainWindow : Form
 			}
 		}
 	}
+
+	private void TsbAbout_Click(object sender, EventArgs e)
+	{
+		new AboutDialog().ShowDialog(this);
+	}
 }
