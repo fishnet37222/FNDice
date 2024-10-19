@@ -33,6 +33,8 @@ public partial class MainWindow : Form
 		{
 			Location = position.Value;
 		}
+
+		m_showPossibleScoresToolStripMenuItem.Checked = Settings.ShowPossibleScores ?? true;
 	}
 
 	private void m_btnRollDice_Click(object sender, EventArgs e)
@@ -55,5 +57,11 @@ public partial class MainWindow : Form
 	private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
 	{
 		Settings.MainWindowLocation = Location;
+	}
+
+	private void ShowPossibleScoresToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		m_showPossibleScoresToolStripMenuItem.Checked = !m_showPossibleScoresToolStripMenuItem.Checked;
+		Settings.ShowPossibleScores = m_showPossibleScoresToolStripMenuItem.Checked;
 	}
 }

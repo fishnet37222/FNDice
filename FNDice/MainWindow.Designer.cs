@@ -22,6 +22,7 @@ partial class MainWindow
 	private void InitializeComponent()
 	{
 		ToolStrip m_toolStrip;
+		ToolStripDropDownButton toolStripDropDownButton1;
 		var resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 		this.m_tsbNewGame = new ToolStripButton();
 		this.m_tsbLoadGame = new ToolStripButton();
@@ -29,7 +30,7 @@ partial class MainWindow
 		this.toolStripSeparator1 = new ToolStripSeparator();
 		this.m_tsbHighScores = new ToolStripButton();
 		this.toolStripSeparator2 = new ToolStripSeparator();
-		this.m_tsbSettings = new ToolStripButton();
+		this.m_showPossibleScoresToolStripMenuItem = new ToolStripMenuItem();
 		this.toolStripSeparator3 = new ToolStripSeparator();
 		this.m_tsbHowToPlay = new ToolStripButton();
 		this.m_tsbAbout = new ToolStripButton();
@@ -95,6 +96,7 @@ partial class MainWindow
 		this.m_txtLowerTotal = new TextBox();
 		this.m_txtGrandTotal = new TextBox();
 		m_toolStrip = new ToolStrip();
+		toolStripDropDownButton1 = new ToolStripDropDownButton();
 		m_toolStrip.SuspendLayout();
 		this.m_statusStrip.SuspendLayout();
 		this.m_tlpTotals.SuspendLayout();
@@ -103,7 +105,7 @@ partial class MainWindow
 		// m_toolStrip
 		// 
 		m_toolStrip.GripStyle = ToolStripGripStyle.Hidden;
-		m_toolStrip.Items.AddRange(new ToolStripItem[] { this.m_tsbNewGame, this.m_tsbLoadGame, this.m_tsbSaveGame, this.toolStripSeparator1, this.m_tsbHighScores, this.toolStripSeparator2, this.m_tsbSettings, this.toolStripSeparator3, this.m_tsbHowToPlay, this.m_tsbAbout });
+		m_toolStrip.Items.AddRange(new ToolStripItem[] { this.m_tsbNewGame, this.m_tsbLoadGame, this.m_tsbSaveGame, this.toolStripSeparator1, this.m_tsbHighScores, this.toolStripSeparator2, toolStripDropDownButton1, this.toolStripSeparator3, this.m_tsbHowToPlay, this.m_tsbAbout });
 		m_toolStrip.Location = new Point(0, 0);
 		m_toolStrip.Name = "m_toolStrip";
 		m_toolStrip.RenderMode = ToolStripRenderMode.System;
@@ -158,14 +160,22 @@ partial class MainWindow
 		this.toolStripSeparator2.Name = "toolStripSeparator2";
 		this.toolStripSeparator2.Size = new Size(6, 31);
 		// 
-		// m_tsbSettings
+		// toolStripDropDownButton1
 		// 
-		this.m_tsbSettings.DisplayStyle = ToolStripItemDisplayStyle.Image;
-		this.m_tsbSettings.Image = Properties.Resources.Preferences24;
-		this.m_tsbSettings.ImageScaling = ToolStripItemImageScaling.None;
-		this.m_tsbSettings.ImageTransparentColor = Color.Magenta;
-		this.m_tsbSettings.Name = "m_tsbSettings";
-		this.m_tsbSettings.Size = new Size(28, 28);
+		toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+		toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { this.m_showPossibleScoresToolStripMenuItem });
+		toolStripDropDownButton1.Image = Properties.Resources.Preferences24;
+		toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+		toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+		toolStripDropDownButton1.Size = new Size(29, 28);
+		toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+		// 
+		// m_showPossibleScoresToolStripMenuItem
+		// 
+		this.m_showPossibleScoresToolStripMenuItem.Name = "m_showPossibleScoresToolStripMenuItem";
+		this.m_showPossibleScoresToolStripMenuItem.Size = new Size(186, 22);
+		this.m_showPossibleScoresToolStripMenuItem.Text = "Show Possible Scores";
+		this.m_showPossibleScoresToolStripMenuItem.Click += this.ShowPossibleScoresToolStripMenuItem_Click;
 		// 
 		// toolStripSeparator3
 		// 
@@ -845,7 +855,6 @@ partial class MainWindow
 	private ToolStripSeparator toolStripSeparator1;
 	private ToolStripButton m_tsbHighScores;
 	private ToolStripSeparator toolStripSeparator2;
-	private ToolStripButton m_tsbSettings;
 	private ToolStripSeparator toolStripSeparator3;
 	private ToolStripButton m_tsbHowToPlay;
 	private ToolStripButton m_tsbAbout;
@@ -907,4 +916,5 @@ partial class MainWindow
 	private TextBox m_txtUpperTotal;
 	private TextBox m_txtLowerTotal;
 	private TextBox m_txtGrandTotal;
+	private ToolStripMenuItem m_showPossibleScoresToolStripMenuItem;
 }

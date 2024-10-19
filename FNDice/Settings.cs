@@ -35,4 +35,28 @@ internal static class Settings
 			reg.SetValue("MainWindowPositionY", value.Value.Y);
 		}
 	}
+
+	internal static bool? ShowPossibleScores
+	{
+		get
+		{
+			var reg = Registry.CurrentUser.CreateSubKey(regSubPath);
+			var showPossibleScores = reg.GetValue("ShowPossibleScores", "").ToString();
+
+			if (string.IsNullOrEmpty(showPossibleScores)) return null;
+
+			return bool.Parse(showPossibleScores);
+		}
+
+		set
+		{
+			if (!value.HasValue)
+			{
+				throw new ArgumentNullException(nameof(value));
+			}
+
+			var reg = Registry.CurrentUser.CreateSubKey(regSubPath);
+			reg.SetValue("ShowPossibleScores", value.Value);
+		}
+	}
 }
