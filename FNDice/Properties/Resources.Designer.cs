@@ -91,6 +91,34 @@ namespace FNDice.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///
+        ///&lt;head&gt;
+        ///      &lt;title&gt;Apache License&lt;/title&gt;
+        ///      &lt;style&gt;
+        ///            .center {
+        ///                  text-align: center;
+        ///            }
+        ///      &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///
+        ///&lt;body&gt;
+        ///      &lt;h1 class=&quot;center&quot;&gt;Apache License&lt;/h1&gt;
+        ///      &lt;div class=&quot;center&quot;&gt;Version 2.0, January 2004&lt;/div&gt;
+        ///      &lt;div class=&quot;center&quot;&gt;&lt;a href=&quot;https://www.apache.org/licenses/&quot;&gt;https://www.apache.org/licenses/&lt;/a&gt;&lt;/div&gt;
+        ///      &lt;h2&gt;TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION&lt;/h2&gt;
+        ///      &lt;ol&gt;
+        ///            &lt;li&gt;
+        ///        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string License {
+            get {
+                return ResourceManager.GetString("License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap New24 {
