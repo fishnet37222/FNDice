@@ -31,7 +31,7 @@ SPDX-License-Identifier: Apache-2.0 -->
 			<RowDefinition Height="5" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
-		<ToolBar Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" ToolBarTray.IsLocked="True">
+		<ToolBar x:Name="m_toolBar" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" ToolBarTray.IsLocked="True" OverflowMode="Never" Loaded="ToolBar_OnLoaded">
 			<Button ToolTip="Start a new game.">
 				<local:AutoGrayableImage Source="Bitmaps/New24.gif" />
 			</Button>

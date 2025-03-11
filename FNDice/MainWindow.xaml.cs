@@ -34,4 +34,17 @@ public partial class MainWindow
 		Left = posX;
 		Top = posY;
 	}
+
+	private void ToolBar_OnLoaded(object sender, RoutedEventArgs e)
+	{
+		if (m_toolBar.Template.FindName("OverflowGrid", m_toolBar) is FrameworkElement overflowGrid)
+		{
+			overflowGrid.Visibility = Visibility.Collapsed;
+		}
+
+		if (m_toolBar.Template.FindName("MainPanelBorder", m_toolBar) is FrameworkElement mainPanelBorder)
+		{
+			mainPanelBorder.Margin = new();
+		}
+	}
 }
