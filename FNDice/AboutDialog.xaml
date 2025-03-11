@@ -1,0 +1,42 @@
+﻿<!--
+Copyright (c) 2025 David A. Frischknecht
+
+SPDX-License-Identifier: Apache-2.0 -->
+
+<Window
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:FNDice"
+		xmlns:wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" x:Class="FNDice.AboutDialog"
+		mc:Ignorable="d" Height="500" Width="600" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+		Title="About Minesweeper" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Loaded="AboutDialog_OnLoaded" Icon="/Bitmaps/About24.gif">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="12" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="12" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="12" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="5" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="5" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="12" />
+		</Grid.RowDefinitions>
+		<Label Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" Content="FNDice 1.0.0"/>
+		<Label Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center" Content="Copyright © 2025 FishNetSoft"/>
+		<Label Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" Content="Licensed under the Apache License, version 2.0"/>
+		<Label Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Center" Content="This application uses the WebView2 library from Microsoft."/>
+		<Border Grid.Column="1" Grid.Row="6" BorderBrush="Black" BorderThickness="1,1,1,1">
+			<wpf:WebView2 x:Name="m_webView" CoreWebView2InitializationCompleted="WebView_OnCoreWebView2InitializationCompleted" NavigationStarting="WebView_OnNavigationStarting"/>
+		</Border>
+		<Button Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right" Padding="15,1,15,1" IsCancel="True" IsDefault="True" Content="Close"/>
+	</Grid>
+</Window>
