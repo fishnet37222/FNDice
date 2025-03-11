@@ -47,4 +47,14 @@ public partial class MainWindow
 			mainPanelBorder.Margin = new();
 		}
 	}
+
+	private void BtnAbout_OnClick(object sender, RoutedEventArgs e)
+	{
+		var dlg = new AboutDialog
+		{
+			Owner = this
+		};
+
+		dlg.ShowDialog();
+	}
 }

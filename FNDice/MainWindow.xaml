@@ -49,7 +49,7 @@ SPDX-License-Identifier: Apache-2.0 -->
 			<Button ToolTip="Learn how to play the game.">
 				<local:AutoGrayableImage Source="Bitmaps/Help24.gif" />
 			</Button>
-			<Button ToolTip="View the license and copyright information.">
+			<Button ToolTip="View the license and copyright information." Click="BtnAbout_OnClick">
 				<local:AutoGrayableImage Source="Bitmaps/About24.gif" />
 			</Button>
 		</ToolBar>
