@@ -81,13 +81,15 @@ MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPositio
 	}
 	else
 	{
-		SetPosition({ posX, posY });
+		SetPosition({ static_cast<int>(posX), static_cast<int>(posY) });
 	}
 	
 	Bind(wxEVT_CLOSE_WINDOW, &MainWindow::MainWindow_OnClose, this);
 }
 
-void MainWindow::ToolBar_OnTool(wxCommandEvent& event)
+// ReSharper disable once CppParameterMayBeConstPtrOrRef
+// ReSharper disable once CppMemberFunctionMayBeStatic
+void MainWindow::ToolBar_OnTool(wxCommandEvent& event) // NOLINT(*-convert-member-functions-to-static)
 {
 	switch (const auto toolId = event.GetId())
 	{
@@ -102,6 +104,7 @@ void MainWindow::ToolBar_OnTool(wxCommandEvent& event)
 	}
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void MainWindow::MainWindow_OnClose([[maybe_unused]] wxCloseEvent& event)
 {
 	auto* config = wxConfig::Create();
