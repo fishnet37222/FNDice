@@ -1,0 +1,39 @@
+#pragma once
+/* XPM */
+static const char *save24_xpm[] = {
+/* columns rows colors chars-per-pixel */
+"24 24 8 1 ",
+"  c white",
+". c gray80",
+"X c gray60",
+"o c gray40",
+"O c black",
+"+ c None",
+"@ c black",
+"# c black",
+/* pixels */
+"++++++++++++++++++++++++",
+"++++++++++++++++++++++++",
+"+++OOOOOOOOOOOOOOOOO++++",
+"++O  X   oooooooo   O+++",
+"++O .X...oooo...o ..O ++",
+"++O .X...oooo...o ..O ++",
+"++O .X...oooo...o ..O ++",
+"++O .X...oooo...o ..O ++",
+"++O .X...oooo...o ..O ++",
+"++O .X...oooooooo ..O ++",
+"++O ..           ...O ++",
+"++O ................O ++",
+"++O .XXXXXXXXXXXXX..O ++",
+"++O .X            ..O ++",
+"++O .X........... ..O ++",
+"++O .X            ..O ++",
+"++O .X........... ..O ++",
+"++O .X            ..O ++",
+"++O .X........... ..O ++",
+"++O .X            ..O ++",
+"+++OOOOOOOOOOOOOOOOO +++",
+"++++                ++++",
+"++++++++++++++++++++++++",
+"++++++++++++++++++++++++"
+};
