@@ -12,6 +12,7 @@ public:
 	
 private:
 	wxToolBar* m_toolBar{};
+	wxStatusBar* m_statusBar{};
 	
 	void ToolBar_OnTool(wxCommandEvent& event);
 };

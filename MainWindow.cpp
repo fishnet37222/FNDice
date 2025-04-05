@@ -31,6 +31,13 @@ enum ToolId : uint16_t
 	ID_ABOUT
 };
 
+enum StatusLabelPos : uint8_t
+{
+	POS_PLAYER = 0,
+	POS_ROUND,
+	POS_ROLL
+};
+
 MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPosition, wxDefaultSize,
 								   wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX))
 {
@@ -60,6 +67,8 @@ MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPositio
 	m_toolBar->Realize();
 	m_toolBar->Bind(wxEVT_TOOL, &MainWindow::ToolBar_OnTool, this);
 	m_toolBar->EnableTool(ID_SAVE, false);
+	
+	m_statusBar = wxFrame::CreateStatusBar(3, wxSTB_DEFAULT_STYLE & ~wxSTB_SIZEGRIP);
 }
 
 void MainWindow::ToolBar_OnTool(wxCommandEvent& event)
