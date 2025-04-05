@@ -4,6 +4,7 @@
 
 #include "App.h"
 #include "MainWindow.h"
+#include  <wx/stdpaths.h>
 
 wxIMPLEMENT_APP(App);
 
@@ -13,6 +14,10 @@ bool App::OnInit()
 	
 	SetVendorName("FishNetSoft");
 	SetAppName("FNDice");
+
+#ifdef __linux
+	wxStandardPaths::Get().SetFileLayout(wxStandardPaths::FileLayout_XDG);
+#endif
 	
 	auto* mainWindow = new MainWindow();
 	SetTopWindow(mainWindow);
