@@ -4,6 +4,7 @@
 
 #include "MainWindow.h"
 #include <cstdint>
+#include <wx/config.h>
 
 #ifdef __linux
 #include "resources/die16.xpm"
@@ -69,6 +70,21 @@ MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPositio
 	m_toolBar->EnableTool(ID_SAVE, false);
 	
 	m_statusBar = wxFrame::CreateStatusBar(3, wxSTB_DEFAULT_STYLE & ~wxSTB_SIZEGRIP);
+	
+	const auto* config = wxConfig::Create();
+	const auto posX = config->ReadLong("MainWindowPosX", -1);
+	const auto posY = config->ReadLong("MainWindowPosY", -1);
+	
+	if (posX == -1 || posY == -1)
+	{
+		CenterOnScreen();
+	}
+	else
+	{
+		SetPosition({ posX, posY });
+	}
+	
+	Bind(wxEVT_CLOSE_WINDOW, &MainWindow::MainWindow_OnClose, this);
 }
 
 void MainWindow::ToolBar_OnTool(wxCommandEvent& event)
@@ -84,4 +100,12 @@ void MainWindow::ToolBar_OnTool(wxCommandEvent& event)
 		default:
 			break;
 	}
+}
+
+void MainWindow::MainWindow_OnClose([[maybe_unused]] wxCloseEvent& event)
+{
+	auto* config = wxConfig::Create();
+	config->Write("MainWindowPosX", GetPosition().x);
+	config->Write("MainWindowPosY", GetPosition().y);
+	event.Skip();
 }

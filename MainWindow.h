@@ -15,4 +15,5 @@ private:
 	wxStatusBar* m_statusBar{};
 	
 	void ToolBar_OnTool(wxCommandEvent& event);
+	void MainWindow_OnClose(wxCloseEvent& event);
 };
