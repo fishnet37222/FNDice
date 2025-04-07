@@ -29,6 +29,13 @@ enum ToolId
 	ID_TOOL_ABOUT
 };
 
+enum StatusTextIndex
+{
+	STATUS_TEXT_PLAYER = 0,
+	STATUS_TEXT_ROLLS,
+	STATUS_TEXT_ROUND
+};
+
 MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPosition, wxDefaultSize,
 	wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX))
 {
@@ -58,6 +65,8 @@ MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPositio
 	m_toolBar->Realize();
 	m_toolBar->EnableTool(ID_TOOL_SAVE_GAME, false);
 	m_toolBar->Bind(wxEVT_TOOL, &MainWindow::ToolBar_OnItemSelect, this);
+	
+	m_statusBar = wxFrame::CreateStatusBar(3, wxSTB_DEFAULT_STYLE & ~wxSTB_SIZEGRIP);
 
 	CenterOnScreen();
 }
