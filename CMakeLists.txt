@@ -19,4 +19,11 @@ target_link_libraries(FNDice PRIVATE ${wxWidgets_LIBRARIES})
 target_precompile_headers(FNDice PRIVATE <wx/wxprec.h>)
 if (${WIN32})
 	target_sources(FNDice PRIVATE FNDice.rc)
+	add_custom_command(
+		TARGET FNDice
+		POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy
+			"$ENV{WXWIN}/3rdparty/webview2/runtimes/win-x64/native/WebView2Loader.dll"
+			$<TARGET_FILE_DIR:FNDice>
+	)
 endif ()
