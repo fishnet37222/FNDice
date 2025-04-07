@@ -9,4 +9,9 @@ class MainWindow final : public wxFrame
 {
 public:
 	MainWindow();
+	
+private:
+	wxToolBar* m_toolBar{};
+	
+	void ToolBar_OnItemSelect(wxCommandEvent& event);
 };
