@@ -129,7 +129,9 @@ MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPositio
 	szrMainOuter->AddSpacer(12);
 	wxFrame::SetSizerAndFit(szrMainOuter);
 
+#ifdef __WIN32__
 	CenterOnScreen();
+#endif
 }
 
 // ReSharper disable once CppMemberFunctionMayBeStatic
