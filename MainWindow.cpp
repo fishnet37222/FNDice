@@ -68,14 +68,86 @@ MainWindow::MainWindow() : wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPositio
 	
 	m_statusBar = wxFrame::CreateStatusBar(3, wxSTB_DEFAULT_STYLE & ~wxSTB_SIZEGRIP);
 
+	auto* szrMainOuter = new wxBoxSizer(wxHORIZONTAL);
+	szrMainOuter->AddSpacer(12);
+	auto* szrMainInner = new wxBoxSizer(wxVERTICAL);
+	szrMainInner->AddSpacer(5);
+	auto* szrDice = new wxStaticBoxSizer(wxHORIZONTAL, this, "Dice");
+	szrDice->AddSpacer(5);
+
+	auto* szrDiceInner = new wxBoxSizer(wxVERTICAL);
+	szrDiceInner->AddSpacer(5);
+
+	auto* szrDiceTop = new wxBoxSizer(wxHORIZONTAL);
+
+	auto* die = new Die(szrDice->GetStaticBox());
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[0] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(szrDice->GetStaticBox());
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[1] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(szrDice->GetStaticBox());
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[2] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(szrDice->GetStaticBox());
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[3] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(szrDice->GetStaticBox());
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[4] = die;
+
+	szrDiceInner->Add(szrDiceTop, wxSizerFlags(0).Expand());
+	szrDiceInner->AddSpacer(5);
+
+	m_btnRollDice = new wxButton(szrDice->GetStaticBox(), wxID_ANY, "Roll");
+	m_btnRollDice->Bind(wxEVT_BUTTON, &MainWindow::BtnRollDice_OnClick, this);
+	szrDiceInner->Add(m_btnRollDice, wxSizerFlags(0).Expand());
+
+	szrDiceInner->AddSpacer(5);
+	szrDice->Add(szrDiceInner, wxSizerFlags(1).Expand());
+
+	szrDice->AddSpacer(5);
+	szrMainInner->Add(szrDice, wxSizerFlags(0).Expand());
+	szrMainInner->AddSpacer(12);
+	szrMainOuter->Add(szrMainInner, wxSizerFlags(1).Expand());
+	szrMainOuter->AddSpacer(12);
+	wxFrame::SetSizerAndFit(szrMainOuter);
+
 	CenterOnScreen();
 }
 
-void MainWindow::ToolBar_OnItemSelect(wxCommandEvent& event)
+// ReSharper disable once CppMemberFunctionMayBeStatic
+void MainWindow::ToolBar_OnItemSelect(wxCommandEvent& event) // NOLINT(*-convert-member-functions-to-static)
 {
 	switch (event.GetId())
 	{
 		// TODO: Implement the event handlers for the toolbar buttons.
 		default: break;
+	}
+}
+
+// ReSharper disable once CppMemberFunctionMayBeConst
+void MainWindow::BtnRollDice_OnClick([[maybe_unused]] wxCommandEvent& event)
+{
+	for (auto* die : m_dice)
+	{
+		if (die->IsSelected()) continue;
+		die->Roll();
 	}
 }
