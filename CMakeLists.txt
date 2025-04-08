@@ -14,7 +14,9 @@ add_executable(FNDice WIN32
 		App.cpp
 		App.h
 		MainWindow.cpp
-		MainWindow.h)
+		MainWindow.h
+		Die.cpp
+		Die.h)
 target_link_libraries(FNDice PRIVATE ${wxWidgets_LIBRARIES})
 target_precompile_headers(FNDice PRIVATE <wx/wxprec.h>)
 if (${WIN32})
