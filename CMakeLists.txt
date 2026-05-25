@@ -11,7 +11,7 @@ find_package(wxWidgets REQUIRED net gl core base webview)
 include(${wxWidgets_USE_FILE})
 
 # Define common sources
-set(FNDICE_SOURCES App.cpp App.h MainWindow.cpp MainWindow.h)
+set(FNDICE_SOURCES App.cpp App.h MainWindow.cpp MainWindow.h "Die.h" "Die.cpp")
 
 # Conditional add_executable for Windows
 if(WIN32)
