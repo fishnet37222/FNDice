@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.28)
 project(FNDice)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 
 find_package(wxWidgets REQUIRED net gl core base webview)
 include(${wxWidgets_USE_FILE})
