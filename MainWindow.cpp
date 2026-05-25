@@ -12,6 +12,13 @@
 #include "bitmaps/die64.xpm"
 #endif
 
+enum : uint8_t
+{
+	SBP_PLAYER = 0,
+	SBP_ROUND,
+	SBP_ROLL
+};
+
 MainWindow::MainWindow()
 	: wxFrame(nullptr, wxID_ANY, "FNDice", wxDefaultPosition, wxDefaultSize,
 			  wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX))
@@ -31,6 +38,8 @@ MainWindow::MainWindow()
 #endif
 
 	wxFrame::SetIcons(icons);
+
+	m_statusBar = wxFrame::CreateStatusBar(3, wxSTB_DEFAULT_STYLE & ~wxSTB_SIZEGRIP);
 
 	CenterOnScreen();
 }
