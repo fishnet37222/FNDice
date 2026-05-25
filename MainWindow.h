@@ -11,5 +11,6 @@ public:
 	MainWindow();
 
 private:
+	wxToolBar* m_toolBar{};
 	wxStatusBar* m_statusBar{};
 };
