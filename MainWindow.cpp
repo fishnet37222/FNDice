@@ -69,5 +69,68 @@ MainWindow::MainWindow()
 
 	m_statusBar = wxFrame::CreateStatusBar(3, wxSTB_DEFAULT_STYLE & ~wxSTB_SIZEGRIP);
 
+	auto* szrMainOuter = new wxBoxSizer(wxHORIZONTAL);
+	szrMainOuter->AddSpacer(10);
+	auto* szrMainInner = new wxBoxSizer(wxVERTICAL);
+	szrMainInner->AddSpacer(5);
+	auto* szrDice = new wxBoxSizer(wxVERTICAL);
+	auto* szrDiceTop = new wxBoxSizer(wxHORIZONTAL);
+
+	auto* die = new Die(this);
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[0] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(this);
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[1] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(this);
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[2] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(this);
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[3] = die;
+
+	szrDiceTop->AddSpacer(5);
+	szrDiceTop->AddStretchSpacer(1);
+
+	die = new Die(this);
+	szrDiceTop->Add(die, wxSizerFlags(0).CenterVertical());
+	m_dice[4] = die;
+
+	szrDice->Add(szrDiceTop, wxSizerFlags(0).Expand());
+	szrDice->AddSpacer(5);
+	m_btnRollDice = new wxButton(this, wxID_ANY, "Roll Dice");
+	m_btnRollDice->Bind(wxEVT_BUTTON, &MainWindow::BtnRollDice_OnClick, this);
+	szrDice->Add(m_btnRollDice, wxSizerFlags(0).Expand());
+	szrMainInner->Add(szrDice, wxSizerFlags(0).Expand());
+	szrMainInner->AddSpacer(5);
+	szrMainOuter->Add(szrMainInner, wxSizerFlags(1).Expand());
+	szrMainOuter->AddSpacer(10);
+	SetSizerAndFit(szrMainOuter);
+
 	CenterOnScreen();
+}
+
+// ReSharper disable once CppMemberFunctionMayBeConst
+void MainWindow::BtnRollDice_OnClick([[maybe_unused]] wxCommandEvent& event)
+{
+	for (auto* die : m_dice)
+	{
+		if (die->IsSelected())
+		{
+			continue;
+		}
+		die->Roll();
+	}
 }

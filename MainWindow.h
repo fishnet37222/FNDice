@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #pragma once
+#include "Die.h"
+#include <array>
 #include <wx/wx.h>
 
 class MainWindow final : public wxFrame
@@ -13,4 +15,8 @@ public:
 private:
 	wxToolBar* m_toolBar{};
 	wxStatusBar* m_statusBar{};
+	std::array<Die*, 5> m_dice{};
+	wxButton* m_btnRollDice{};
+
+	void BtnRollDice_OnClick(wxCommandEvent& event);
 };
